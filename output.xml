@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20230810 17:39:21.167" rpa="false" schemaversion="4">
+<suite id="s1" name="testDemo1" source="/Users/yashwanthgt/PycharmProjects/pythonProject1/testDemo1.robot">
+<test id="s1-t1" name="Hiii" line="2">
+<kw name="Log To Console" library="BuiltIn">
+<arg>hiiii</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230810 17:39:21.186" endtime="20230810 17:39:21.187"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>hiiii</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230810 17:39:21.187" endtime="20230810 17:39:21.187"/>
+</kw>
+<status status="PASS" starttime="20230810 17:39:21.186" endtime="20230810 17:39:21.187"/>
+</test>
+<status status="PASS" starttime="20230810 17:39:21.169" endtime="20230810 17:39:21.188"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="testDemo1">testDemo1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
