@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20231102 15:15:33.065" rpa="false" schemaversion="4">
+<suite id="s1" name="Backend Test Cases" source="/Users/yashwanthgt/PycharmProjects/56secure_backend_testing/Tests/backend_test_cases.robot">
+<test id="s1-t1" name="Get device info" line="14">
+<kw name="Get Device Info Body" library="Payloads">
+<var>${get_device_info_body}</var>
+<msg timestamp="20231102 15:15:33.196" level="INFO">${get_device_info_body} = {'camera_device_id': '56AI010100000015', 'event_name': 'MESSAGE/6528f82903c4b8f0d296d1ea', 'data': '{"event": "GET_DEVICE_INFO", "udid": "56AI010100000015","timestamp": "1682077731", "id": "63ce55886b...</msg>
+<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:33.196"/>
+</kw>
+<kw name="Get Onecam Headers" library="Payloads">
+<var>${onecam_headers}</var>
+<msg timestamp="20231102 15:15:33.197" level="INFO">${onecam_headers} = {'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:33.197"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<arg>https://api.qa.56secure.com/rpc/v1/raven/send_message</arg>
+<arg>json=${get_device_info_body}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20231102 15:15:34.743" level="INFO">POST Request : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+ path_url=/rpc/v1/raven/send_message 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'Content-Length': '292'} 
+ body=b'{"camera_device_id": "56AI010100000015", "event_name": "MESSAGE/6528f82903c4b8f0d296d1ea", "data": "{\\"event\\": \\"GET_DEVICE_INFO\\", \\"udid\\": \\"56AI010100000015\\",\\"timestamp\\": \\"1682077731\\", \\"id\\": \\"63ce55886b9ce300f9831f6b\\", \\"request_id\\":\\"87e5d0e7-6e10-4f27-877a-1b9d1a19dd2d\\" }"}' 
+ </msg>
+<msg timestamp="20231102 15:15:34.744" level="INFO">POST Response : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+ status=200, reason=OK 
+ headers={'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-length': '2', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'date': 'Thu, 02 Nov 2023 09:45:34 GMT', 'x-envoy-upstream-service-time': '37', 'server': 'istio-envoy'} 
+ body={} 
+ </msg>
+<status status="PASS" starttime="20231102 15:15:33.197" endtime="20231102 15:15:34.744"/>
+</kw>
+<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:34.744"/>
+</test>
+<test id="s1-t2" name="Change_wifi_settings" line="21">
+<kw name="Test Mongodb" library="Payloads">
+<msg timestamp="20231102 15:15:38.265" level="INFO">{'_id': ObjectId('6528f82903c4b8f0d296d1ea'), 'camera_id': '64492159dfb867530e73dbdd', 'account_id': '64709f9dddab023693f76c2d', 'camera_custom_id': '56AI010100000015', 'live_stream_id': 'LIVE_QA_56AI010100000015', 'vendor': 'onecam', 'onecam_binding': {'firmware_version': 'v1.1.0_dev_kvs8', 'live_status': 'online', 'registration_key': 'eyJEYXRhIjoiZjA4OTQ1N2VjYjllYjdkNGI0NTljYmRmMGE3NTI1NTgyODA3MjA2MzI5NThjYzE2MGJhYjAwMWZiOTUxMGFmNTg2OTUwYjI5MGU3ZWQ2ZGVkNDAyYmQxZjQ1ZDQ2MzQ0NmQ5OTQ5NjQ4YTg4YmYyZWUzZjJjMjAyOGE5NzAzM2ZjNjA5ZmI0YWY1YzExMmRmNmU2YTJhZDU2MThmODIxMCIsIlYiOiJ2MSJ9', 'poe_mac_address': '98:ae:71:01:9c:01', 'kvs_playback_channels': ['PB_QA_56AI010100000015_1', 'PB_QA_56AI010100000015_2', 'PB_QA_56AI010100000015_3'], 'kvs_region': 'ap-south-1', 'camera_hash': 'NjUyOGY4MjkwM2M0YjhmMGQyOTZkMWVh', 'tutk_udid': '2B28RITAZWZFYCAZVJL0FOC33IENPPI6AIVDG5CLBZZICTZCWR2D76WSDPBT4ERZJRGU4KZ3GM3IR67DHALXZP5E7HKGWI6TFL6QVGBJX6', 'tutk_credential': 'Dummy', 'camera_ip': '192.168.50.177', 'wifi_mac_address': '34:7d:e4:7e:a1:72', 'kvs_live_channel': 'LIVE_QA_56AI010100000015'}, 'tag': 'Ankit cam', 'location': 'Ankit table', 'apartment_id': '', 'status': 'active', 'camera_detection_type': '', 'actor': 'consumer', 'smart_eye': {'start_date': 1695321000000, 'end_hour': 23, 'updated_at': 0, 'state': 'disabled', 'end_date': 1695666600000, 'start_hour': 0, 'start_minute': 0, 'end_minute': 0, 'actor': {'id': '', 'type': 'system'}}, 'created_at': 1697183785625, 'updated_at': 1698918316582, 'locality_id': 'locality_12', 'camera_binding_ids': ['6528f7d403c4b8f0d296d1c8', '6528faed03c4b8f0d296d2a0', '6528fb5c03c4b8f0d296d2ba', '6528fc5003c4b8f0d296d309', '6528fd3803c4b8f0d296d338', '652900e703c4b8f0d296d3bd', '652b9a7003c4b8f0d2971993', '652ba3a67c0e73262b9c32c4', '652cc17f7c0e73262b9c447d', '652fca99770c791b4a3b5296', '6530d722770c791b4a3b7102', '653165379c7d2c23b6c7d6d7', '6532119c9c7d2c23b6c7e4ab', '6532a918a60d9fa100d59c46', '6533a0b5b03b23a1e9cab998', '653b5b45db0fa7f0fcc8c393', '653cad2097c68a24bccfb4c0', '653fb22d84d91cdfb83db668', '6540974384d91cdfb83dd23b', '6540f05355ff70b91ae6c5ac', '6540ff6855ff70b91ae6cb77', '6541026055ff70b91ae6cc82', '654103b755ff70b91ae6ccf3', '65411602a3cbcd309929b727', '65435c8b1fa95c9e802ddf5c'], 'coordinates': {'long': 77.63784382492304, 'lat': 12.972373072805098}, 'last_bind_timestamp': 1698913521736, 'camera_event_meta': {'firmware_version': 'v1.1.0_dev_kvs8', 'expected_pings_counter': 179, 'actual_pings_counter': 180, 'uptime_percentage': 100.55, 'last_ping_timestamp': 1698918316578, 'sd_state': 'healthy'}, 'last_unbind_timestamp': 1698912866577, 'account_type': 'home', 'ai_zone': {'status': 'disabled', 'positions': [{'x': 0.8787, 'y': 0.71}, {'x': 0.7294, 'y': 0.1997}, {'y': 0.1248, 'x': 0.5}, {'x': 0.3114, 'y': 0.3198}, {'x': 0.3702, 'y': 0.6876}, {'x': 0.5413, 'y': 0.8701}]}}</msg>
+<status status="PASS" starttime="20231102 15:15:34.745" endtime="20231102 15:15:38.265"/>
+</kw>
+<kw name="Get Wifi Settings Body" library="Payloads">
+<var>${get_wifi_settings_body}</var>
+<msg timestamp="20231102 15:15:38.265" level="INFO">${get_wifi_settings_body} = {'camera_device_id': '56AI010100000015', 'event_name': 'MESSAGE/6528f82903c4b8f0d296d1ea', 'data': '{"event": "WIFI_NETWORK_CONFIG", "udid": "56AI010100000015","timestamp": "1682077731", "id": "63ce55...</msg>
+<status status="PASS" starttime="20231102 15:15:38.265" endtime="20231102 15:15:38.265"/>
+</kw>
+<kw name="Get Onecam Headers" library="Payloads">
+<var>${onecam_headers}</var>
+<msg timestamp="20231102 15:15:38.266" level="INFO">${onecam_headers} = {'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231102 15:15:38.266" endtime="20231102 15:15:38.266"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<arg>https://api.qa.56secure.com/rpc/v1/raven/send_message</arg>
+<arg>json=${get_wifi_settings_body}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20231102 15:15:39.491" level="INFO">POST Request : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+ path_url=/rpc/v1/raven/send_message 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'Content-Length': '398'} 
+ body=b'{"camera_device_id": "56AI010100000015", "event_name": "MESSAGE/6528f82903c4b8f0d296d1ea", "data": "{\\"event\\": \\"WIFI_NETWORK_CONFIG\\", \\"udid\\": \\"56AI010100000015\\",\\"timestamp\\": \\"1682077731\\", \\"id\\": \\"63ce55886b9ce300f9831f6b\\", \\"request_id\\":\\"87e5d0e7-6e10-4f27-877a-1b9d1a19dd2d\\", \\"state\\": \\"ENABLE\\",\\"ssid\\": \\"56Secure3\\",\\"password\\":  \\"56Secure@123$\\",\\"security\\": \\"WPA2\\"}"}' 
+ </msg>
+<msg timestamp="20231102 15:15:39.491" level="INFO">POST Response : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+ status=200, reason=OK 
+ headers={'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-length': '2', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'date': 'Thu, 02 Nov 2023 09:45:39 GMT', 'x-envoy-upstream-service-time': '17', 'server': 'istio-envoy'} 
+ body={} 
+ </msg>
+<status status="PASS" starttime="20231102 15:15:38.266" endtime="20231102 15:15:39.492"/>
+</kw>
+<status status="PASS" starttime="20231102 15:15:34.744" endtime="20231102 15:15:39.492"/>
+</test>
+<status status="PASS" starttime="20231102 15:15:33.066" endtime="20231102 15:15:39.493"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Backend Test Cases">Backend Test Cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
