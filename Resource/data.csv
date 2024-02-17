@@ -1,0 +1,4 @@
+*** Test Cases ***,${camera_custom_id},${ssid},${wifi_password}
+First_camera,56AI010100000015,56Secure3,56Secure@123$
+Second_camera,56AI010100000019,56Secure3,56Secure@123$
+Third_camera,56AI010100000020,56Secure3,56Secure@123$

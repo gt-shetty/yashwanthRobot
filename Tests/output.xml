@@ -1,82 +1,292 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20231102 15:15:33.065" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20240214 18:51:03.387" rpa="false" schemaversion="4">
 <suite id="s1" name="Backend Test Cases" source="/Users/yashwanthgt/PycharmProjects/56secure_backend_testing/Tests/backend_test_cases.robot">
-<test id="s1-t1" name="Get device info" line="14">
-<kw name="Get Device Info Body" library="Payloads">
-<var>${get_device_info_body}</var>
-<msg timestamp="20231102 15:15:33.196" level="INFO">${get_device_info_body} = {'camera_device_id': '56AI010100000015', 'event_name': 'MESSAGE/6528f82903c4b8f0d296d1ea', 'data': '{"event": "GET_DEVICE_INFO", "udid": "56AI010100000015","timestamp": "1682077731", "id": "63ce55886b...</msg>
-<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:33.196"/>
+<test id="s1-t1" name="Camera_bind" line="20">
+<kw name="bind from app" library="backend_resource_functions">
+<var>${return_results}</var>
+<kw name="Log To Console" library="BuiltIn">
+<arg>client calling bind api...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:04.033"/>
 </kw>
-<kw name="Get Onecam Headers" library="Payloads">
+<kw name="Get Headers" library="Payloads">
 <var>${onecam_headers}</var>
-<msg timestamp="20231102 15:15:33.197" level="INFO">${onecam_headers} = {'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:33.197"/>
+<msg timestamp="20240214 18:51:05.276" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
+<msg timestamp="20240214 18:51:05.276" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQxYzc0Njc4Zjg4ZDkwYWQyZiIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg2NSwiaWF0Ijox...</msg>
+<status status="PASS" starttime="20240214 18:51:04.034" endtime="20240214 18:51:05.276"/>
+</kw>
+<kw name="Get Camera Bind Payload" library="Payloads">
+<var>${bind_payload}</var>
+<msg timestamp="20240214 18:51:05.276" level="INFO">${bind_payload} = {'is_apartment_camera': False}</msg>
+<status status="PASS" starttime="20240214 18:51:05.276" endtime="20240214 18:51:05.276"/>
+</kw>
+<kw name="Call Bind Api And Fetch Reg Key" library="Payloads">
+<var>${return_values}</var>
+<msg timestamp="20240214 18:51:06.304" level="INFO">{'data': {'id': '65ccbe4265314609d879441e', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9', 'timezone': '(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi', 'cloud': {'http_domain': 'https://camera.qa.56secure.com', 'mqtt_domain': 'mqtt.qa.56secure.com:1883'}, 'configs': {'timezone_timestamp': 1707916866229, 'camera_heartbeat_interval_in_mins': 1}}}
+{'reg_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9', 'binding_id': '65ccbe4265314609d879441e'}</msg>
+<msg timestamp="20240214 18:51:06.304" level="INFO">${return_values} = {'reg_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZ...</msg>
+<status status="PASS" starttime="20240214 18:51:05.277" endtime="20240214 18:51:06.304"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${reg_key}</var>
+<arg>${return_values}</arg>
+<arg>reg_key</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20240214 18:51:06.305" level="INFO">${reg_key} = eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQy...</msg>
+<status status="PASS" starttime="20240214 18:51:06.305" endtime="20240214 18:51:06.305"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${binding_id}</var>
+<arg>${return_values}</arg>
+<arg>binding_id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20240214 18:51:06.306" level="INFO">${binding_id} = 65ccbe4265314609d879441e</msg>
+<status status="PASS" starttime="20240214 18:51:06.305" endtime="20240214 18:51:06.306"/>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<arg>${reg_key}</arg>
+<arg>${binding_id}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<msg timestamp="20240214 18:51:06.306" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20240214 18:51:06.306" endtime="20240214 18:51:06.306"/>
+</kw>
+<msg timestamp="20240214 18:51:06.306" level="INFO">${return_results} = ['eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZT...</msg>
+<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:06.307"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${reg_key}</var>
+<arg>${return_results}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240214 18:51:06.307" level="INFO">${reg_key} = eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQy...</msg>
+<status status="PASS" starttime="20240214 18:51:06.307" endtime="20240214 18:51:06.307"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${binding_id}</var>
+<arg>${return_results}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240214 18:51:06.308" level="INFO">${binding_id} = 65ccbe4265314609d879441e</msg>
+<status status="PASS" starttime="20240214 18:51:06.307" endtime="20240214 18:51:06.308"/>
+</kw>
+<kw name="bind from camera" library="backend_resource_functions">
+<arg>${reg_key}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>binding from camera...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:06.308" endtime="20240214 18:51:06.308"/>
+</kw>
+<kw name="Init From Camera" library="Payloads">
+<var>${cloud_id}</var>
+<arg>${reg_key}</arg>
+<msg timestamp="20240214 18:51:07.612" level="INFO">Hiiii
+{'data': {'cloud_id': 'eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFjOGM1NWFhMzk1MTNkMmZhMjk5YSIsIlYiOiJ2MSJ9', 'mqtt': {'client_id': '65a10ecbbef13ee9fe5d6b87', 'username': '56AI010100000015', 'password': 'fa278377999bfed233e9ce8bf8be9ce1a3976f663c6144a976e2f9b05f49d0dd', 'camera_hash': 'NjVhMTBlY2JiZWYxM2VlOWZlNWQ2Yjg3'}, 's3_bucket': 'onecam-staging', 's3_region': 'us-east-2', 'ssh_password': '6ad3ccce5c2aafa7369ea6de1523384c', 'configs': {'timezone_timestamp': 1707916867530, 'detection_mode': 'FR', 'live_detection_state': 'ENABLE', 'live_detection_video_snapshot_state': 'ENABLE', 'summary_event_state': 'DISABLE', 'summary_event_video_snapshot_state': 'DISABLE', 'face_summary_state': 'DISABLE', 'line_crossing_state': 'DISABLE', 'face_summary_enable_config': {'duration_in_seconds': 20, 'unknown_face_count': 2, 'unknown_face_detection_confidence': 0.6}, 'ai_vision_config': {'motion_detection': {'min_area_threshold': 0.05, 'no_object_image_upload': True}, 'object_detection': {'conf_threshold_person': 0.45, 'conf_threshold_face': 0.7, 'conf_threshold_vehicle': 0.65, 'conf_threshold_animal': 0.6, 'conf_threshold_lpd': 0.3, 'conf_threshold_lpr': 0.3, 'nms_iou_threshold': 0.3}, 'deepsort': {'run_duration': 30, 'no_object_threshold': 10, 'track_initiate_threshold': 0, 'track_remove_threshold': 35}, 'face_recognition': {'cosine_similarity_threshold': 0.55}, 'license_plate': {'vehicle_min_area_threshold': 0.01}}, 'gpio': {'animal': 'DISABLE', 'person': 'DISABLE', 'vehicle': 'DISABLE', 'rec_face': 'DISABLE', 'anpr': 'DISABLE', 'duration_in_seconds': 20}, 'upload_success_event': {'state': 'DISABLE', 'type': ['face_summary', 'image']}}, 'kvs_channel': {'livestream': 'LIVE_QA_56AI010100000015', 'playback': ['PB_QA_56AI010100000015_1', 'PB_QA_56AI010100000015_2', 'PB_QA_56AI010100000015_3'], 'region': 'ap-south-1', 'key': 'ZTdkYmEyMjZiM2YxNWJlMjIwNWRiMDZkYmY5ODYxNzdhMjkzNWIzZTkxNDg0NmI0ZDdkNDUwNjM5MDRjN2MwYQ==', 'secret': 'YTE1MWYzYjg5NjNiNGQ0ZDk4YmQ5ZmE0ZmNjYjQxOWIwMTkxM2ViY2RjYzhmNTU2NWI3ZGEyOGU1ZjQ1YTAzMjgzMWQ3ZmExZTRkYjYzY2FjY2U4ZTMzNjMzNjNlMTFk'}}}
+Hiiiieeeee</msg>
+<msg timestamp="20240214 18:51:07.612" level="INFO">${cloud_id} = eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFj...</msg>
+<status status="PASS" starttime="20240214 18:51:06.309" endtime="20240214 18:51:07.612"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240214 18:51:10.613" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20240214 18:51:07.612" endtime="20240214 18:51:10.614"/>
+</kw>
+<kw name="bind complete from camera" library="backend_resource_functions">
+<arg>${reg_key}</arg>
+<arg>${cloud_id}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>making bind completion from camera...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:10.615" endtime="20240214 18:51:10.615"/>
+</kw>
+<kw name="Get Headers" library="Payloads">
+<var>${headers}</var>
+<msg timestamp="20240214 18:51:11.692" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
+<msg timestamp="20240214 18:51:11.692" level="INFO">${headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ3Yzc0Njc4Zjg4ZDkwYWQzMCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MSwiaWF0Ijox...</msg>
+<status status="PASS" starttime="20240214 18:51:10.615" endtime="20240214 18:51:11.692"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{payload}</var>
+<arg>registration_key=${reg_key}</arg>
+<arg>tutk_cred=abcd</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240214 18:51:11.693" level="INFO">&amp;{payload} = { registration_key=eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N...</msg>
+<status status="PASS" starttime="20240214 18:51:11.692" endtime="20240214 18:51:11.693"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${headers}</arg>
+<arg>Authorization</arg>
+<arg>${cloud_id}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20240214 18:51:11.693" endtime="20240214 18:51:11.694"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${headers}</arg>
+<arg>X-Device-Id</arg>
+<arg>56AI010100000015</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20240214 18:51:11.694" endtime="20240214 18:51:11.694"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
-<arg>https://api.qa.56secure.com/rpc/v1/raven/send_message</arg>
-<arg>json=${get_device_info_body}</arg>
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/onecam/camera/completion</arg>
 <arg>expected_status=200</arg>
-<arg>headers=${onecam_headers}</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${payload}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20231102 15:15:34.743" level="INFO">POST Request : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
- path_url=/rpc/v1/raven/send_message 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'Content-Length': '292'} 
- body=b'{"camera_device_id": "56AI010100000015", "event_name": "MESSAGE/6528f82903c4b8f0d296d1ea", "data": "{\\"event\\": \\"GET_DEVICE_INFO\\", \\"udid\\": \\"56AI010100000015\\",\\"timestamp\\": \\"1682077731\\", \\"id\\": \\"63ce55886b9ce300f9831f6b\\", \\"request_id\\":\\"87e5d0e7-6e10-4f27-877a-1b9d1a19dd2d\\" }"}' 
+<msg timestamp="20240214 18:51:12.764" level="INFO">POST Request : url=https://api.qa.56secure.com/vision/v1/onecam/camera/completion 
+ path_url=/vision/v1/onecam/camera/completion 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFjOGM1NWFhMzk1MTNkMmZhMjk5YSIsIlYiOiJ2MSJ9', 'X-Device-Id': '56AI010100000015', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1707916871', 'Content-Length': '285'} 
+ body=b'{"registration_key": "eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9", "tutk_cred": "abcd"}' 
  </msg>
-<msg timestamp="20231102 15:15:34.744" level="INFO">POST Response : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+<msg timestamp="20240214 18:51:12.764" level="INFO">POST Response : url=https://api.qa.56secure.com/vision/v1/onecam/camera/completion 
  status=200, reason=OK 
- headers={'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-length': '2', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'date': 'Thu, 02 Nov 2023 09:45:34 GMT', 'x-envoy-upstream-service-time': '37', 'server': 'istio-envoy'} 
- body={} 
+ headers={'content-type': 'application/json', 'date': 'Wed, 14 Feb 2024 13:21:12 GMT', 'content-length': '3', 'x-envoy-upstream-service-time': '24', 'server': 'istio-envoy'} 
+ body={}
+ 
  </msg>
-<status status="PASS" starttime="20231102 15:15:33.197" endtime="20231102 15:15:34.744"/>
+<msg timestamp="20240214 18:51:12.764" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240214 18:51:11.694" endtime="20240214 18:51:12.764"/>
 </kw>
-<status status="PASS" starttime="20231102 15:15:33.196" endtime="20231102 15:15:34.744"/>
-</test>
-<test id="s1-t2" name="Change_wifi_settings" line="21">
-<kw name="Test Mongodb" library="Payloads">
-<msg timestamp="20231102 15:15:38.265" level="INFO">{'_id': ObjectId('6528f82903c4b8f0d296d1ea'), 'camera_id': '64492159dfb867530e73dbdd', 'account_id': '64709f9dddab023693f76c2d', 'camera_custom_id': '56AI010100000015', 'live_stream_id': 'LIVE_QA_56AI010100000015', 'vendor': 'onecam', 'onecam_binding': {'firmware_version': 'v1.1.0_dev_kvs8', 'live_status': 'online', 'registration_key': 'eyJEYXRhIjoiZjA4OTQ1N2VjYjllYjdkNGI0NTljYmRmMGE3NTI1NTgyODA3MjA2MzI5NThjYzE2MGJhYjAwMWZiOTUxMGFmNTg2OTUwYjI5MGU3ZWQ2ZGVkNDAyYmQxZjQ1ZDQ2MzQ0NmQ5OTQ5NjQ4YTg4YmYyZWUzZjJjMjAyOGE5NzAzM2ZjNjA5ZmI0YWY1YzExMmRmNmU2YTJhZDU2MThmODIxMCIsIlYiOiJ2MSJ9', 'poe_mac_address': '98:ae:71:01:9c:01', 'kvs_playback_channels': ['PB_QA_56AI010100000015_1', 'PB_QA_56AI010100000015_2', 'PB_QA_56AI010100000015_3'], 'kvs_region': 'ap-south-1', 'camera_hash': 'NjUyOGY4MjkwM2M0YjhmMGQyOTZkMWVh', 'tutk_udid': '2B28RITAZWZFYCAZVJL0FOC33IENPPI6AIVDG5CLBZZICTZCWR2D76WSDPBT4ERZJRGU4KZ3GM3IR67DHALXZP5E7HKGWI6TFL6QVGBJX6', 'tutk_credential': 'Dummy', 'camera_ip': '192.168.50.177', 'wifi_mac_address': '34:7d:e4:7e:a1:72', 'kvs_live_channel': 'LIVE_QA_56AI010100000015'}, 'tag': 'Ankit cam', 'location': 'Ankit table', 'apartment_id': '', 'status': 'active', 'camera_detection_type': '', 'actor': 'consumer', 'smart_eye': {'start_date': 1695321000000, 'end_hour': 23, 'updated_at': 0, 'state': 'disabled', 'end_date': 1695666600000, 'start_hour': 0, 'start_minute': 0, 'end_minute': 0, 'actor': {'id': '', 'type': 'system'}}, 'created_at': 1697183785625, 'updated_at': 1698918316582, 'locality_id': 'locality_12', 'camera_binding_ids': ['6528f7d403c4b8f0d296d1c8', '6528faed03c4b8f0d296d2a0', '6528fb5c03c4b8f0d296d2ba', '6528fc5003c4b8f0d296d309', '6528fd3803c4b8f0d296d338', '652900e703c4b8f0d296d3bd', '652b9a7003c4b8f0d2971993', '652ba3a67c0e73262b9c32c4', '652cc17f7c0e73262b9c447d', '652fca99770c791b4a3b5296', '6530d722770c791b4a3b7102', '653165379c7d2c23b6c7d6d7', '6532119c9c7d2c23b6c7e4ab', '6532a918a60d9fa100d59c46', '6533a0b5b03b23a1e9cab998', '653b5b45db0fa7f0fcc8c393', '653cad2097c68a24bccfb4c0', '653fb22d84d91cdfb83db668', '6540974384d91cdfb83dd23b', '6540f05355ff70b91ae6c5ac', '6540ff6855ff70b91ae6cb77', '6541026055ff70b91ae6cc82', '654103b755ff70b91ae6ccf3', '65411602a3cbcd309929b727', '65435c8b1fa95c9e802ddf5c'], 'coordinates': {'long': 77.63784382492304, 'lat': 12.972373072805098}, 'last_bind_timestamp': 1698913521736, 'camera_event_meta': {'firmware_version': 'v1.1.0_dev_kvs8', 'expected_pings_counter': 179, 'actual_pings_counter': 180, 'uptime_percentage': 100.55, 'last_ping_timestamp': 1698918316578, 'sd_state': 'healthy'}, 'last_unbind_timestamp': 1698912866577, 'account_type': 'home', 'ai_zone': {'status': 'disabled', 'positions': [{'x': 0.8787, 'y': 0.71}, {'x': 0.7294, 'y': 0.1997}, {'y': 0.1248, 'x': 0.5}, {'x': 0.3114, 'y': 0.3198}, {'x': 0.3702, 'y': 0.6876}, {'x': 0.5413, 'y': 0.8701}]}}</msg>
-<status status="PASS" starttime="20231102 15:15:34.745" endtime="20231102 15:15:38.265"/>
+<status status="PASS" starttime="20240214 18:51:10.614" endtime="20240214 18:51:12.764"/>
 </kw>
-<kw name="Get Wifi Settings Body" library="Payloads">
-<var>${get_wifi_settings_body}</var>
-<msg timestamp="20231102 15:15:38.265" level="INFO">${get_wifi_settings_body} = {'camera_device_id': '56AI010100000015', 'event_name': 'MESSAGE/6528f82903c4b8f0d296d1ea', 'data': '{"event": "WIFI_NETWORK_CONFIG", "udid": "56AI010100000015","timestamp": "1682077731", "id": "63ce55...</msg>
-<status status="PASS" starttime="20231102 15:15:38.265" endtime="20231102 15:15:38.265"/>
+<status status="PASS" starttime="20240214 18:51:06.308" endtime="20240214 18:51:12.764"/>
 </kw>
-<kw name="Get Onecam Headers" library="Payloads">
+<kw name="start polling" library="backend_resource_functions">
+<arg>${binding_id}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>started polling...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:12.765"/>
+</kw>
+<kw name="Get Headers" library="Payloads">
 <var>${onecam_headers}</var>
-<msg timestamp="20231102 15:15:38.266" level="INFO">${onecam_headers} = {'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20231102 15:15:38.266" endtime="20231102 15:15:38.266"/>
+<msg timestamp="20240214 18:51:13.839" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
+<msg timestamp="20240214 18:51:13.839" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ5Yzc0Njc4Zjg4ZDkwYWQzMSIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MywiaWF0Ijox...</msg>
+<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:13.839"/>
 </kw>
-<kw name="POST" library="RequestsLibrary">
-<arg>https://api.qa.56secure.com/rpc/v1/raven/send_message</arg>
-<arg>json=${get_wifi_settings_body}</arg>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>8</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
 <arg>expected_status=200</arg>
 <arg>headers=${onecam_headers}</arg>
-<doc>Sends a POST request.</doc>
-<msg timestamp="20231102 15:15:39.491" level="INFO">POST Request : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
- path_url=/rpc/v1/raven/send_message 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Device-Id': 'postman', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'Content-Length': '398'} 
- body=b'{"camera_device_id": "56AI010100000015", "event_name": "MESSAGE/6528f82903c4b8f0d296d1ea", "data": "{\\"event\\": \\"WIFI_NETWORK_CONFIG\\", \\"udid\\": \\"56AI010100000015\\",\\"timestamp\\": \\"1682077731\\", \\"id\\": \\"63ce55886b9ce300f9831f6b\\", \\"request_id\\":\\"87e5d0e7-6e10-4f27-877a-1b9d1a19dd2d\\", \\"state\\": \\"ENABLE\\",\\"ssid\\": \\"56Secure3\\",\\"password\\":  \\"56Secure@123$\\",\\"security\\": \\"WPA2\\"}"}' 
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240214 18:51:14.890" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
+ path_url=/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ5Yzc0Njc4Zjg4ZDkwYWQzMSIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MywiaWF0IjoxNzA3OTE2ODczfQ.bJEBz9SmjTj0DoNessPk5d_6D40xW1b9ciGBzLP7mbkHADsm0_ijsM73EcK41IKTWiwKC3AAS7w51ZW_1Pt2Wg', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1707916873'} 
+ body=None 
  </msg>
-<msg timestamp="20231102 15:15:39.491" level="INFO">POST Response : url=https://api.qa.56secure.com/rpc/v1/raven/send_message 
+<msg timestamp="20240214 18:51:14.890" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
  status=200, reason=OK 
- headers={'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-length': '2', 'etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'date': 'Thu, 02 Nov 2023 09:45:39 GMT', 'x-envoy-upstream-service-time': '17', 'server': 'istio-envoy'} 
- body={} 
+ headers={'content-type': 'application/json', 'date': 'Wed, 14 Feb 2024 13:21:14 GMT', 'content-length': '90', 'x-envoy-upstream-service-time': '8', 'server': 'istio-envoy'} 
+ body={"data":{"status":"success","message":"","camera_account_id":"65a10ecbbef13ee9fe5d6b87"}}
+ 
  </msg>
-<status status="PASS" starttime="20231102 15:15:38.266" endtime="20231102 15:15:39.492"/>
+<msg timestamp="20240214 18:51:14.890" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240214 18:51:13.840" endtime="20240214 18:51:14.890"/>
 </kw>
-<status status="PASS" starttime="20231102 15:15:34.744" endtime="20231102 15:15:39.492"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240214 18:51:14.891" level="INFO">${polling_result} = success</msg>
+<status status="PASS" starttime="20240214 18:51:14.891" endtime="20240214 18:51:14.892"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<msg timestamp="20240214 18:51:14.892" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+</kw>
+<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+</branch>
+<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+</kw>
+<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.893"/>
+</branch>
+<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.893"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20240214 18:51:14.893" endtime="20240214 18:51:14.893"/>
+</kw>
+<status status="PASS" starttime="20240214 18:51:13.839" endtime="20240214 18:51:14.893"/>
+</iter>
+<status status="PASS" starttime="20240214 18:51:13.839" endtime="20240214 18:51:14.893"/>
+</for>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${polling_result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:14.893" endtime="20240214 18:51:14.893"/>
+</kw>
+<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:14.893"/>
+</kw>
+<kw name="verify ai packs" library="backend_resource_functions">
+<kw name="Log To Console" library="BuiltIn">
+<arg>verifying ai packs...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240214 18:51:14.894" endtime="20240214 18:51:14.894"/>
+</kw>
+<kw name="Fetch Ai Packs Values" library="Payloads">
+<var>${ai_packs_values}</var>
+<arg>56AI010100000015</arg>
+<msg timestamp="20240214 18:51:16.448" level="INFO">Im at mongo db function
+Im hereee
+&lt;class 'dict'&gt;
+{'_id': ObjectId('65a10ecbbef13ee9fe5d6b87'), 'ai_pack': {'pms': {'state': 'inactive', 'state_timestamp': 1707916217763, 'workflow': None}, 'ams': {'state': 'inactive', 'state_timestamp': 1707916217763, 'workflow': None}, 'ukms': {'workflow': None, 'state': 'inactive', 'state_timestamp': 1707916217763}, 'intrusion': {'state': 'enabled', 'state_timestamp': 1707916217763, 'workflow': None}}}</msg>
+<msg timestamp="20240214 18:51:16.448" level="INFO">${ai_packs_values} = {'intrusion_pack': 'enabled', 'pms_pack': 'inactive', 'ams_pack': 'inactive', 'ukms_pack': 'inactive'}</msg>
+<status status="PASS" starttime="20240214 18:51:14.894" endtime="20240214 18:51:16.449"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${ai_packs_values}[intrusion_pack]</arg>
+<arg>enabled</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240214 18:51:16.449" endtime="20240214 18:51:16.449"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${ai_packs_values}[pms_pack]</arg>
+<arg>inactive</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240214 18:51:16.449" endtime="20240214 18:51:16.450"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${ai_packs_values}[ams_pack]</arg>
+<arg>inactive</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240214 18:51:16.450" endtime="20240214 18:51:16.451"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${ai_packs_values}[ukms_pack]</arg>
+<arg>inactive</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20240214 18:51:16.451" endtime="20240214 18:51:16.451"/>
+</kw>
+<status status="PASS" starttime="20240214 18:51:14.893" endtime="20240214 18:51:16.451"/>
+</kw>
+<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:16.451"/>
 </test>
-<status status="PASS" starttime="20231102 15:15:33.066" endtime="20231102 15:15:39.493"/>
+<status status="PASS" starttime="20240214 18:51:03.389" endtime="20240214 18:51:16.452"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Backend Test Cases">Backend Test Cases</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Backend Test Cases">Backend Test Cases</stat>
 </suite>
 </statistics>
 <errors>
