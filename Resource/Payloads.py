@@ -2,6 +2,7 @@ import json
 import requests
 import pymongo
 import time
+import socket
 
 from robot.api.deco import library, keyword
 from robot.libraries.BuiltIn import BuiltIn
@@ -164,13 +165,7 @@ class Payloads:
         response = requests.post(url, headers=self.secure_headers, data=json.dumps(temp_payload))
         temp_json = json.loads(response.text)
         print(temp_json)
-        reg_key = str(temp_json['data']['registration_key'])
-        binding_id = str(temp_json['data']['id'])
-        return_dict = { }
-        return_dict['reg_key'] = reg_key
-        return_dict['binding_id'] = binding_id
-        print(return_dict)
-        return return_dict
+        return temp_json
 
     @keyword
     def init_from_camera(self, reg_key):
@@ -178,13 +173,14 @@ class Payloads:
         url = "https://api.qa.56secure.com/vision/v1/onecam/camera/initialisation"
         temp_payload = {
                "registration_key": reg_key,
-               "udid": "56AI010100000015",
+               "udid": "56AI010100000001",
                "tutk_udid": "2B28NITTGS6RG3W6IXQTF3RURQVJRQXTGPMSEBK3ZB2QRVNA3ZKSOUQ3QRLABWIF7GAUNV5SIUWWWER3JFDCP2RK5ATY7I6XTCHVAAAUTO",
                "camera_ip": "192.168.51.800",
                "poe_mac_address": "98:ae:71:01:9c:9e",
                "wifi_mac_address": "34:7d:e4:7e:9d:6c",
                "location": None
         }
+        print(temp_payload)
 
         response = requests.post(url, headers=self.secure_headers, data=json.dumps(temp_payload))
         temp_json = json.loads(response.text)
@@ -208,3 +204,6 @@ class Payloads:
                     'ams_pack': document['ai_pack']['ams']['state'], 'ukms_pack': document['ai_pack']['ukms']['state']}
 
         return  ai_packs
+
+
+

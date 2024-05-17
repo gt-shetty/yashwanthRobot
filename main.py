@@ -1,16 +1,9 @@
-# This is a sample Python script.
+epoch_time = 1710247335223 / 1000  # Divide by 1000 to convert milliseconds to seconds
+# datetime_obj = datetime.datetime.fromtimestamp(epoch_time)
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# Convert datetime object to exponential format
+exponential_format = "{:e}".format(epoch_time)
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Print the exponential format
+print("this is exponential format", exponential_format)
+print(type(exponential_format))

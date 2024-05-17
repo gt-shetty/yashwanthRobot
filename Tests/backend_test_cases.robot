@@ -2,6 +2,7 @@
 Library     RequestsLibrary
 Library     DatabaseLibrary
 Library     ../Resource/Payloads.py
+Library     ../Resource/Custom_functions.py
 Resource     ../Resource/backend_resource_functions.resource
 Library    ExcelLibrary
 Library    JSONLibrary
@@ -18,14 +19,18 @@ ${bind_payload}
 *** Test Cases ***
 
 Camera_bind
+    &{wifi_details}      Create Dictionary      ssid=YashwanthGT        password=sunflower00$       security=WPA2
     ${return_results}     bind from app
-    ${reg_key}=    Set Variable           ${return_results}[0]
-    ${binding_id}=    Set Variable        ${return_results}[1]
-
-    bind from camera     ${reg_key}
+    ${reg_key}    Set Variable           ${return_results['data']['registration_key']}
+    ${binding_id}    Set Variable        ${return_results['data']['id']}
+    pass bind info to camera        ${return_results}      ${wifi_details}
+    #bind from camera     ${reg_key}
     start polling       ${binding_id}
     verify ai packs
 
+Simple_test
+    Change Wifi Connection
+    #pass bind info to camera
 
 
 

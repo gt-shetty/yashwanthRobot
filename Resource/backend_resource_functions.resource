@@ -1,10 +1,12 @@
 *** Settings ***
 Library     ../Resource/Payloads.py
+Library     ../Resource/Custom_functions.py
 Library     RequestsLibrary
 Library     DatabaseLibrary
 Library    ExcelLibrary
 Library    JSONLibrary
 Library    Collections
+Library    BuiltIn
 
 *** Keywords ***
 
@@ -35,14 +37,13 @@ Restart_camera
 
 
 bind from app
-    Log To Console    client calling bind api...
+    Log To Console    app calling bind api...
     ${onecam_headers}        get headers
     ${bind_payload}         get camera bind payload
     ${return_values}=     call bind api and fetch reg key
-    ${reg_key}=    Get From Dictionary    ${return_values}    reg_key
-    ${binding_id}=    Get From Dictionary    ${return_values}    binding_id
-
-    Return From Keyword     ${reg_key}  ${binding_id}
+    Log     printing values received from cloud
+    Log    ${return_values}
+    Return From Keyword     ${return_values}
 
 bind from camera
     [Arguments]    ${reg_key}
@@ -82,9 +83,10 @@ bind complete from camera
     ${headers}    Get Headers
     &{payload}      Create Dictionary           registration_key=${reg_key}     tutk_cred=abcd
     Set To Dictionary       ${headers}      Authorization       ${cloud_id}
-    Set To Dictionary       ${headers}      X-Device-Id       56AI010100000015
+    Set To Dictionary       ${headers}      X-Device-Id       56AI010100000001
 
     ${response}=     POST          https://api.qa.56secure.com/vision/v1/onecam/camera/completion     expected_status=200   headers=${headers}   json=${payload}
+
 
 verify ai packs
     Log To Console  verifying ai packs...
@@ -93,3 +95,7 @@ verify ai packs
     Should Be Equal As Strings    ${ai_packs_values}[pms_pack]        inactive
     Should Be Equal As Strings    ${ai_packs_values}[ams_pack]        inactive
     Should Be Equal As Strings    ${ai_packs_values}[ukms_pack]        inactive
+
+pass bind info to camera
+    [Arguments]     ${data_to_pass_in_sock_connection}         ${wifi_details}
+    establish socket connection     ${data_to_pass_in_sock_connection}    ${wifi_details}

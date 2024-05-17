@@ -1,167 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20240214 18:51:03.387" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.9.6 on darwin)" generated="20240313 12:07:31.390" rpa="false" schemaversion="4">
 <suite id="s1" name="Backend Test Cases" source="/Users/yashwanthgt/PycharmProjects/56secure_backend_testing/Tests/backend_test_cases.robot">
-<test id="s1-t1" name="Camera_bind" line="20">
+<test id="s1-t1" name="Camera_bind" line="21">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{wifi_details}</var>
+<arg>ssid=YashwanthGT</arg>
+<arg>password=sunflower00$</arg>
+<arg>security=WPA2</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240313 12:07:32.486" level="INFO">&amp;{wifi_details} = { ssid=YashwanthGT | password=sunflower00$ | security=WPA2 }</msg>
+<status status="PASS" starttime="20240313 12:07:32.485" endtime="20240313 12:07:32.486"/>
+</kw>
 <kw name="bind from app" library="backend_resource_functions">
 <var>${return_results}</var>
 <kw name="Log To Console" library="BuiltIn">
-<arg>client calling bind api...</arg>
+<arg>app calling bind api...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:04.033"/>
+<status status="PASS" starttime="20240313 12:07:32.486" endtime="20240313 12:07:32.486"/>
 </kw>
 <kw name="Get Headers" library="Payloads">
 <var>${onecam_headers}</var>
-<msg timestamp="20240214 18:51:05.276" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
-<msg timestamp="20240214 18:51:05.276" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQxYzc0Njc4Zjg4ZDkwYWQyZiIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg2NSwiaWF0Ijox...</msg>
-<status status="PASS" starttime="20240214 18:51:04.034" endtime="20240214 18:51:05.276"/>
+<msg timestamp="20240313 12:07:35.677" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
+<msg timestamp="20240313 12:07:35.678" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWFmMWI5Mjc0Nzc2MWFlZDljMCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTg1NSwiaWF0Ijox...</msg>
+<status status="PASS" starttime="20240313 12:07:32.487" endtime="20240313 12:07:35.678"/>
 </kw>
 <kw name="Get Camera Bind Payload" library="Payloads">
 <var>${bind_payload}</var>
-<msg timestamp="20240214 18:51:05.276" level="INFO">${bind_payload} = {'is_apartment_camera': False}</msg>
-<status status="PASS" starttime="20240214 18:51:05.276" endtime="20240214 18:51:05.276"/>
+<msg timestamp="20240313 12:07:35.678" level="INFO">${bind_payload} = {'is_apartment_camera': False}</msg>
+<status status="PASS" starttime="20240313 12:07:35.678" endtime="20240313 12:07:35.678"/>
 </kw>
 <kw name="Call Bind Api And Fetch Reg Key" library="Payloads">
 <var>${return_values}</var>
-<msg timestamp="20240214 18:51:06.304" level="INFO">{'data': {'id': '65ccbe4265314609d879441e', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9', 'timezone': '(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi', 'cloud': {'http_domain': 'https://camera.qa.56secure.com', 'mqtt_domain': 'mqtt.qa.56secure.com:1883'}, 'configs': {'timezone_timestamp': 1707916866229, 'camera_heartbeat_interval_in_mins': 1}}}
-{'reg_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9', 'binding_id': '65ccbe4265314609d879441e'}</msg>
-<msg timestamp="20240214 18:51:06.304" level="INFO">${return_values} = {'reg_key': 'eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZ...</msg>
-<status status="PASS" starttime="20240214 18:51:05.277" endtime="20240214 18:51:06.304"/>
+<msg timestamp="20240313 12:07:37.779" level="INFO">{'data': {'id': '65f149b172b64f5e76ab0adc', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzliZTQzOTNmZDc5ZDUwN2M1OGI4MmI3OWE2NWYyMmE4YjFlZDZlYjc1N2U0ZDBjZDFhZDMwZjdkNzBmNGMzNjIyNDIzZGQ0ODAyNTY0YmZiM2FhMTJlZjRlNGViOWU0MTczNzg1MDllZmUyNyIsIlYiOiJ2MSJ9', 'timezone': '(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi', 'cloud': {'http_domain': 'https://camera.qa.56secure.com', 'mqtt_domain': 'mqtt.qa.56secure.com:1883'}, 'configs': {'timezone_timestamp': 1710311857719, 'camera_heartbeat_interval_in_mins': 1}}}</msg>
+<msg timestamp="20240313 12:07:37.779" level="INFO">${return_values} = {'data': {'id': '65f149b172b64f5e76ab0adc', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzl...</msg>
+<status status="PASS" starttime="20240313 12:07:35.678" endtime="20240313 12:07:37.780"/>
 </kw>
-<kw name="Get From Dictionary" library="Collections">
-<var>${reg_key}</var>
-<arg>${return_values}</arg>
-<arg>reg_key</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20240214 18:51:06.305" level="INFO">${reg_key} = eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQy...</msg>
-<status status="PASS" starttime="20240214 18:51:06.305" endtime="20240214 18:51:06.305"/>
+<kw name="Log" library="BuiltIn">
+<arg>printing values received from cloud</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240313 12:07:37.780" level="INFO">printing values received from cloud</msg>
+<status status="PASS" starttime="20240313 12:07:37.780" endtime="20240313 12:07:37.780"/>
 </kw>
-<kw name="Get From Dictionary" library="Collections">
-<var>${binding_id}</var>
+<kw name="Log" library="BuiltIn">
 <arg>${return_values}</arg>
-<arg>binding_id</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20240214 18:51:06.306" level="INFO">${binding_id} = 65ccbe4265314609d879441e</msg>
-<status status="PASS" starttime="20240214 18:51:06.305" endtime="20240214 18:51:06.306"/>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240313 12:07:37.781" level="INFO">{'data': {'id': '65f149b172b64f5e76ab0adc', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzliZTQzOTNmZDc5ZDUwN2M1OGI4MmI3OWE2NWYyMmE4YjFlZDZlYjc1N2U0ZDBjZDFhZDMwZjdkNzBmNGMzNjIyNDIzZGQ0ODAyNTY0YmZiM2FhMTJlZjRlNGViOWU0MTczNzg1MDllZmUyNyIsIlYiOiJ2MSJ9', 'timezone': '(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi', 'cloud': {'http_domain': 'https://camera.qa.56secure.com', 'mqtt_domain': 'mqtt.qa.56secure.com:1883'}, 'configs': {'timezone_timestamp': 1710311857719, 'camera_heartbeat_interval_in_mins': 1}}}</msg>
+<status status="PASS" starttime="20240313 12:07:37.780" endtime="20240313 12:07:37.781"/>
 </kw>
 <kw name="Return From Keyword" library="BuiltIn">
-<arg>${reg_key}</arg>
-<arg>${binding_id}</arg>
+<arg>${return_values}</arg>
 <doc>Returns from the enclosing user keyword.</doc>
-<msg timestamp="20240214 18:51:06.306" level="INFO">Returning from the enclosing user keyword.</msg>
-<status status="PASS" starttime="20240214 18:51:06.306" endtime="20240214 18:51:06.306"/>
+<msg timestamp="20240313 12:07:37.781" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20240313 12:07:37.781" endtime="20240313 12:07:37.781"/>
 </kw>
-<msg timestamp="20240214 18:51:06.306" level="INFO">${return_results} = ['eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZT...</msg>
-<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:06.307"/>
+<msg timestamp="20240313 12:07:37.781" level="INFO">${return_results} = {'data': {'id': '65f149b172b64f5e76ab0adc', 'username': '9999999992', 'password': '9999999992', 'registration_key': 'eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzl...</msg>
+<status status="PASS" starttime="20240313 12:07:32.486" endtime="20240313 12:07:37.781"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${reg_key}</var>
-<arg>${return_results}[0]</arg>
+<arg>${return_results['data']['registration_key']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240214 18:51:06.307" level="INFO">${reg_key} = eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQy...</msg>
-<status status="PASS" starttime="20240214 18:51:06.307" endtime="20240214 18:51:06.307"/>
+<msg timestamp="20240313 12:07:37.782" level="INFO">${reg_key} = eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzliZTQzOTNmZDc5ZDUwN2M1OGI4MmI3OWE2NWYyMmE4YjFlZDZlYjc1N2U0ZDBjZDFhZDMwZjdkNzBmNGMzNjIyNDIzZGQ0ODAyNTY0YmZiM2FhMTJlZjRl...</msg>
+<status status="PASS" starttime="20240313 12:07:37.782" endtime="20240313 12:07:37.782"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${binding_id}</var>
-<arg>${return_results}[1]</arg>
+<arg>${return_results['data']['id']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240214 18:51:06.308" level="INFO">${binding_id} = 65ccbe4265314609d879441e</msg>
-<status status="PASS" starttime="20240214 18:51:06.307" endtime="20240214 18:51:06.308"/>
+<msg timestamp="20240313 12:07:37.783" level="INFO">${binding_id} = 65f149b172b64f5e76ab0adc</msg>
+<status status="PASS" starttime="20240313 12:07:37.783" endtime="20240313 12:07:37.783"/>
 </kw>
-<kw name="bind from camera" library="backend_resource_functions">
-<arg>${reg_key}</arg>
-<kw name="Log To Console" library="BuiltIn">
-<arg>binding from camera...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:06.308" endtime="20240214 18:51:06.308"/>
+<kw name="pass bind info to camera" library="backend_resource_functions">
+<arg>${return_results}</arg>
+<arg>${wifi_details}</arg>
+<kw name="Establish Socket Connection" library="Custom_functions">
+<arg>${data_to_pass_in_sock_connection}</arg>
+<arg>${wifi_details}</arg>
+<msg timestamp="20240313 12:08:23.417" level="INFO">WiFi connection changed successfully!
+confirming wifi successssss
+"secure_56":{'user_name': '9999999992', 'user_password': '9999999992', 'registration_key': 'eyJEYXRhIjoiODlhNjYwOGFhNmIzZmYxMWM5YWQzNzQ1ZTJlNDEzMzZiYmRkMTVjY2E4MTYwOGU4ZTQzMzliZTQzOTNmZDc5ZDUwN2M1OGI4MmI3OWE2NWYyMmE4YjFlZDZlYjc1N2U0ZDBjZDFhZDMwZjdkNzBmNGMzNjIyNDIzZGQ0ODAyNTY0YmZiM2FhMTJlZjRlNGViOWU0MTczNzg1MDllZmUyNyIsIlYiOiJ2MSJ9', 'timezone': '(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi', 'cloud': {'http_domain': 'https://camera.qa.56secure.com', 'mqtt_domain': 'mqtt.qa.56secure.com:1883'}, 'configs': {'timezone_timestamp': '1.710312e+09', 'camera_heartbeat_interval_in_mins': 1.0}, 'wifi': {'ssid': 'YashwanthGT', 'password': 'sunflower00$', 'security': 'WPA2'}}
+Server response: "secure_56":{
+	"error_code":	-3,
+	"state":	"failed",
+	"message":	"Invalid JSON format"
+}
+WiFi connection changed successfully!</msg>
+<status status="PASS" starttime="20240313 12:07:37.784" endtime="20240313 12:08:23.418"/>
 </kw>
-<kw name="Init From Camera" library="Payloads">
-<var>${cloud_id}</var>
-<arg>${reg_key}</arg>
-<msg timestamp="20240214 18:51:07.612" level="INFO">Hiiii
-{'data': {'cloud_id': 'eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFjOGM1NWFhMzk1MTNkMmZhMjk5YSIsIlYiOiJ2MSJ9', 'mqtt': {'client_id': '65a10ecbbef13ee9fe5d6b87', 'username': '56AI010100000015', 'password': 'fa278377999bfed233e9ce8bf8be9ce1a3976f663c6144a976e2f9b05f49d0dd', 'camera_hash': 'NjVhMTBlY2JiZWYxM2VlOWZlNWQ2Yjg3'}, 's3_bucket': 'onecam-staging', 's3_region': 'us-east-2', 'ssh_password': '6ad3ccce5c2aafa7369ea6de1523384c', 'configs': {'timezone_timestamp': 1707916867530, 'detection_mode': 'FR', 'live_detection_state': 'ENABLE', 'live_detection_video_snapshot_state': 'ENABLE', 'summary_event_state': 'DISABLE', 'summary_event_video_snapshot_state': 'DISABLE', 'face_summary_state': 'DISABLE', 'line_crossing_state': 'DISABLE', 'face_summary_enable_config': {'duration_in_seconds': 20, 'unknown_face_count': 2, 'unknown_face_detection_confidence': 0.6}, 'ai_vision_config': {'motion_detection': {'min_area_threshold': 0.05, 'no_object_image_upload': True}, 'object_detection': {'conf_threshold_person': 0.45, 'conf_threshold_face': 0.7, 'conf_threshold_vehicle': 0.65, 'conf_threshold_animal': 0.6, 'conf_threshold_lpd': 0.3, 'conf_threshold_lpr': 0.3, 'nms_iou_threshold': 0.3}, 'deepsort': {'run_duration': 30, 'no_object_threshold': 10, 'track_initiate_threshold': 0, 'track_remove_threshold': 35}, 'face_recognition': {'cosine_similarity_threshold': 0.55}, 'license_plate': {'vehicle_min_area_threshold': 0.01}}, 'gpio': {'animal': 'DISABLE', 'person': 'DISABLE', 'vehicle': 'DISABLE', 'rec_face': 'DISABLE', 'anpr': 'DISABLE', 'duration_in_seconds': 20}, 'upload_success_event': {'state': 'DISABLE', 'type': ['face_summary', 'image']}}, 'kvs_channel': {'livestream': 'LIVE_QA_56AI010100000015', 'playback': ['PB_QA_56AI010100000015_1', 'PB_QA_56AI010100000015_2', 'PB_QA_56AI010100000015_3'], 'region': 'ap-south-1', 'key': 'ZTdkYmEyMjZiM2YxNWJlMjIwNWRiMDZkYmY5ODYxNzdhMjkzNWIzZTkxNDg0NmI0ZDdkNDUwNjM5MDRjN2MwYQ==', 'secret': 'YTE1MWYzYjg5NjNiNGQ0ZDk4YmQ5ZmE0ZmNjYjQxOWIwMTkxM2ViY2RjYzhmNTU2NWI3ZGEyOGU1ZjQ1YTAzMjgzMWQ3ZmExZTRkYjYzY2FjY2U4ZTMzNjMzNjNlMTFk'}}}
-Hiiiieeeee</msg>
-<msg timestamp="20240214 18:51:07.612" level="INFO">${cloud_id} = eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFj...</msg>
-<status status="PASS" starttime="20240214 18:51:06.309" endtime="20240214 18:51:07.612"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240214 18:51:10.613" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20240214 18:51:07.612" endtime="20240214 18:51:10.614"/>
-</kw>
-<kw name="bind complete from camera" library="backend_resource_functions">
-<arg>${reg_key}</arg>
-<arg>${cloud_id}</arg>
-<kw name="Log To Console" library="BuiltIn">
-<arg>making bind completion from camera...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:10.615" endtime="20240214 18:51:10.615"/>
-</kw>
-<kw name="Get Headers" library="Payloads">
-<var>${headers}</var>
-<msg timestamp="20240214 18:51:11.692" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
-<msg timestamp="20240214 18:51:11.692" level="INFO">${headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ3Yzc0Njc4Zjg4ZDkwYWQzMCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MSwiaWF0Ijox...</msg>
-<status status="PASS" starttime="20240214 18:51:10.615" endtime="20240214 18:51:11.692"/>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>&amp;{payload}</var>
-<arg>registration_key=${reg_key}</arg>
-<arg>tutk_cred=abcd</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240214 18:51:11.693" level="INFO">&amp;{payload} = { registration_key=eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N...</msg>
-<status status="PASS" starttime="20240214 18:51:11.692" endtime="20240214 18:51:11.693"/>
-</kw>
-<kw name="Set To Dictionary" library="Collections">
-<arg>${headers}</arg>
-<arg>Authorization</arg>
-<arg>${cloud_id}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" starttime="20240214 18:51:11.693" endtime="20240214 18:51:11.694"/>
-</kw>
-<kw name="Set To Dictionary" library="Collections">
-<arg>${headers}</arg>
-<arg>X-Device-Id</arg>
-<arg>56AI010100000015</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" starttime="20240214 18:51:11.694" endtime="20240214 18:51:11.694"/>
-</kw>
-<kw name="POST" library="RequestsLibrary">
-<var>${response}</var>
-<arg>https://api.qa.56secure.com/vision/v1/onecam/camera/completion</arg>
-<arg>expected_status=200</arg>
-<arg>headers=${headers}</arg>
-<arg>json=${payload}</arg>
-<doc>Sends a POST request.</doc>
-<msg timestamp="20240214 18:51:12.764" level="INFO">POST Request : url=https://api.qa.56secure.com/vision/v1/onecam/camera/completion 
- path_url=/vision/v1/onecam/camera/completion 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJEYXRhIjoiOWZjZTkxNzdjNWIxOTRiZGM1ZTNhMDYzN2JjY2VlYTMxOTMxY2M5MWM2NDkyZDY4M2U0YWE3ZDcxYWZlZjU0YjZlMTI1ODQzZDkwODk0ODgzODNjZjBjYmNhYWIzZGU1OWM2M2M3MTc2ZDcyYjM4Mzk1NDlhNGQ3ZWI4NjcxZWIzZmRlYTJkY2JhZDFjOGM1NWFhMzk1MTNkMmZhMjk5YSIsIlYiOiJ2MSJ9', 'X-Device-Id': '56AI010100000015', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1707916871', 'Content-Length': '285'} 
- body=b'{"registration_key": "eyJEYXRhIjoiMWNhZWZhYzAxMmNmNTVkNTcxMmRiZGQxYTMyZWMyNDllOGZhNWNhNTg4NzZjZGQyOThmNThlZTg0ODc0NjdhODMxOTU5MGVlZWQzZmQ3NjRhYTk4MWYxYjE0ZDEyZWU3YWI2NWU0MWI4Y2ZlMjIwZGYxNWM0ZmZlZjBmMDU0N2U3NjZkODY1M2M1ZTQyNDI2ZGVkNTNmM2QwM2NlNjc3NyIsIlYiOiJ2MSJ9", "tutk_cred": "abcd"}' 
- </msg>
-<msg timestamp="20240214 18:51:12.764" level="INFO">POST Response : url=https://api.qa.56secure.com/vision/v1/onecam/camera/completion 
- status=200, reason=OK 
- headers={'content-type': 'application/json', 'date': 'Wed, 14 Feb 2024 13:21:12 GMT', 'content-length': '3', 'x-envoy-upstream-service-time': '24', 'server': 'istio-envoy'} 
- body={}
- 
- </msg>
-<msg timestamp="20240214 18:51:12.764" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240214 18:51:11.694" endtime="20240214 18:51:12.764"/>
-</kw>
-<status status="PASS" starttime="20240214 18:51:10.614" endtime="20240214 18:51:12.764"/>
-</kw>
-<status status="PASS" starttime="20240214 18:51:06.308" endtime="20240214 18:51:12.764"/>
+<status status="PASS" starttime="20240313 12:07:37.784" endtime="20240313 12:08:23.418"/>
 </kw>
 <kw name="start polling" library="backend_resource_functions">
 <arg>${binding_id}</arg>
 <kw name="Log To Console" library="BuiltIn">
 <arg>started polling...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:12.765"/>
+<status status="PASS" starttime="20240313 12:08:23.419" endtime="20240313 12:08:23.420"/>
 </kw>
 <kw name="Get Headers" library="Payloads">
 <var>${onecam_headers}</var>
-<msg timestamp="20240214 18:51:13.839" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
-<msg timestamp="20240214 18:51:13.839" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ5Yzc0Njc4Zjg4ZDkwYWQzMSIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MywiaWF0Ijox...</msg>
-<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:13.839"/>
+<msg timestamp="20240313 12:08:24.950" level="INFO">&lt;class 'requests.models.Response'&gt;</msg>
+<msg timestamp="20240313 12:08:24.951" level="INFO">${onecam_headers} = {'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0Ijox...</msg>
+<status status="PASS" starttime="20240313 12:08:23.420" endtime="20240313 12:08:24.951"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${i}</var>
@@ -175,109 +114,451 @@ Hiiiieeeee</msg>
 <arg>expected_status=200</arg>
 <arg>headers=${onecam_headers}</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20240214 18:51:14.890" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
- path_url=/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Y2NiZTQ5Yzc0Njc4Zjg4ZDkwYWQzMSIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MDc5MzQ4NjAsIm5iZiI6MTcwNzkxNjg3MywiaWF0IjoxNzA3OTE2ODczfQ.bJEBz9SmjTj0DoNessPk5d_6D40xW1b9ciGBzLP7mbkHADsm0_ijsM73EcK41IKTWiwKC3AAS7w51ZW_1Pt2Wg', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1707916873'} 
+<msg timestamp="20240313 12:08:26.114" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
  body=None 
  </msg>
-<msg timestamp="20240214 18:51:14.890" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65ccbe4265314609d879441e 
+<msg timestamp="20240313 12:08:26.114" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
  status=200, reason=OK 
- headers={'content-type': 'application/json', 'date': 'Wed, 14 Feb 2024 13:21:14 GMT', 'content-length': '90', 'x-envoy-upstream-service-time': '8', 'server': 'istio-envoy'} 
- body={"data":{"status":"success","message":"","camera_account_id":"65a10ecbbef13ee9fe5d6b87"}}
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:38:26 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '20', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
  
  </msg>
-<msg timestamp="20240214 18:51:14.890" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240214 18:51:13.840" endtime="20240214 18:51:14.890"/>
+<msg timestamp="20240313 12:08:26.114" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:08:24.952" endtime="20240313 12:08:26.114"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${polling_result}</var>
 <arg>${response.json()}[data][status]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240214 18:51:14.891" level="INFO">${polling_result} = success</msg>
-<status status="PASS" starttime="20240214 18:51:14.891" endtime="20240214 18:51:14.892"/>
+<msg timestamp="20240313 12:08:26.116" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:08:26.115" endtime="20240313 12:08:26.116"/>
 </kw>
 <if>
 <branch type="IF" condition="'${polling_result}'=='success'">
 <kw name="Exit For Loop" library="BuiltIn">
 <doc>Stops executing the enclosing FOR loop.</doc>
-<msg timestamp="20240214 18:51:14.892" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+<status status="NOT RUN" starttime="20240313 12:08:26.116" endtime="20240313 12:08:26.116"/>
 </kw>
-<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+<status status="NOT RUN" starttime="20240313 12:08:26.116" endtime="20240313 12:08:26.116"/>
 </branch>
-<status status="PASS" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+<status status="PASS" starttime="20240313 12:08:26.116" endtime="20240313 12:08:26.116"/>
 </if>
 <if>
 <branch type="IF" condition="'${polling_result}'=='failure'">
 <kw name="Exit For Loop" library="BuiltIn">
 <doc>Stops executing the enclosing FOR loop.</doc>
-<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.892"/>
+<status status="NOT RUN" starttime="20240313 12:08:26.117" endtime="20240313 12:08:26.117"/>
 </kw>
-<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.893"/>
+<status status="NOT RUN" starttime="20240313 12:08:26.117" endtime="20240313 12:08:26.117"/>
 </branch>
-<status status="NOT RUN" starttime="20240214 18:51:14.892" endtime="20240214 18:51:14.893"/>
+<status status="PASS" starttime="20240313 12:08:26.116" endtime="20240313 12:08:26.117"/>
 </if>
 <kw name="Sleep" library="BuiltIn">
 <arg>15</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20240214 18:51:14.893" endtime="20240214 18:51:14.893"/>
+<msg timestamp="20240313 12:08:41.119" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:08:26.117" endtime="20240313 12:08:41.119"/>
 </kw>
-<status status="PASS" starttime="20240214 18:51:13.839" endtime="20240214 18:51:14.893"/>
+<status status="PASS" starttime="20240313 12:08:24.951" endtime="20240313 12:08:41.119"/>
 </iter>
-<status status="PASS" starttime="20240214 18:51:13.839" endtime="20240214 18:51:14.893"/>
+<iter>
+<var name="${i}">2</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:08:42.556" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:08:42.556" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:38:42 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '19', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:08:42.557" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:08:41.120" endtime="20240313 12:08:42.557"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:08:42.558" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:08:42.557" endtime="20240313 12:08:42.558"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:08:42.558" endtime="20240313 12:08:42.558"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:08:42.558" endtime="20240313 12:08:42.558"/>
+</branch>
+<status status="PASS" starttime="20240313 12:08:42.558" endtime="20240313 12:08:42.558"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:08:42.559" endtime="20240313 12:08:42.559"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:08:42.559" endtime="20240313 12:08:42.559"/>
+</branch>
+<status status="PASS" starttime="20240313 12:08:42.559" endtime="20240313 12:08:42.559"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:08:57.561" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:08:42.559" endtime="20240313 12:08:57.561"/>
+</kw>
+<status status="PASS" starttime="20240313 12:08:41.119" endtime="20240313 12:08:57.561"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:08:58.810" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:08:58.811" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:38:58 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '21', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:08:58.811" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:08:57.562" endtime="20240313 12:08:58.811"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:08:58.812" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:08:58.811" endtime="20240313 12:08:58.812"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:08:58.813" endtime="20240313 12:08:58.813"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:08:58.812" endtime="20240313 12:08:58.813"/>
+</branch>
+<status status="PASS" starttime="20240313 12:08:58.812" endtime="20240313 12:08:58.813"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:08:58.813" endtime="20240313 12:08:58.813"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:08:58.813" endtime="20240313 12:08:58.813"/>
+</branch>
+<status status="PASS" starttime="20240313 12:08:58.813" endtime="20240313 12:08:58.813"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:09:13.816" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:08:58.813" endtime="20240313 12:09:13.816"/>
+</kw>
+<status status="PASS" starttime="20240313 12:08:57.561" endtime="20240313 12:09:13.816"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:09:15.118" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:09:15.118" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:39:15 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '20', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:09:15.119" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:09:13.817" endtime="20240313 12:09:15.119"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:09:15.120" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:09:15.119" endtime="20240313 12:09:15.120"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:15.120" endtime="20240313 12:09:15.120"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:15.120" endtime="20240313 12:09:15.120"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:15.120" endtime="20240313 12:09:15.120"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:15.121" endtime="20240313 12:09:15.121"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:15.121" endtime="20240313 12:09:15.121"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:15.121" endtime="20240313 12:09:15.121"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:09:30.122" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:09:15.121" endtime="20240313 12:09:30.122"/>
+</kw>
+<status status="PASS" starttime="20240313 12:09:13.817" endtime="20240313 12:09:30.122"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:09:31.605" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:09:31.605" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:39:31 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '20', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:09:31.605" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:09:30.122" endtime="20240313 12:09:31.605"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:09:31.606" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:09:31.605" endtime="20240313 12:09:31.606"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.607"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.607"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.607"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.608"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.608"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:31.607" endtime="20240313 12:09:31.608"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:09:46.609" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:09:31.608" endtime="20240313 12:09:46.609"/>
+</kw>
+<status status="PASS" starttime="20240313 12:09:30.122" endtime="20240313 12:09:46.609"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:09:47.806" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:09:47.806" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:39:47 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '19', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:09:47.806" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:09:46.610" endtime="20240313 12:09:47.806"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:09:47.807" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:09:47.806" endtime="20240313 12:09:47.807"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:47.808" endtime="20240313 12:09:47.808"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:47.807" endtime="20240313 12:09:47.808"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:47.807" endtime="20240313 12:09:47.808"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:09:47.808" endtime="20240313 12:09:47.808"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:09:47.808" endtime="20240313 12:09:47.808"/>
+</branch>
+<status status="PASS" starttime="20240313 12:09:47.808" endtime="20240313 12:09:47.808"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:10:02.810" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:09:47.808" endtime="20240313 12:10:02.810"/>
+</kw>
+<status status="PASS" starttime="20240313 12:09:46.609" endtime="20240313 12:10:02.811"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>https://api.qa.56secure.com/vision/v1/camera/onecam/bind/${binding_id}</arg>
+<arg>expected_status=200</arg>
+<arg>headers=${onecam_headers}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20240313 12:10:04.310" level="INFO">GET Request : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ path_url=/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjE0OWUwMWI5Mjc0Nzc2MWFlZDljNCIsInJvbGUiOiJjb25zdW1lciIsImlzcyI6ImJpZnJvc3QiLCJleHAiOjE3MTAzMjk4ODAsIm5iZiI6MTcxMDMxMTkwNCwiaWF0IjoxNzEwMzExOTA0fQ.BsbXxLXjye-6viFeJREdQFyELJsLy_pOqB6SOy7HVyRbFVN1B0NWyFgJwJBbIXTDBFE0OAUT93O59C5m3GcnYA', 'X-Device-Id': '1234', 'X-Platform': 'android', 'X-Version': '10.0.0', 'Content-Type': 'application/json', 'X-Client-Time': '1710311904'} 
+ body=None 
+ </msg>
+<msg timestamp="20240313 12:10:04.311" level="INFO">GET Response : url=https://api.qa.56secure.com/vision/v1/camera/onecam/bind/65f149b172b64f5e76ab0adc 
+ status=200, reason=OK 
+ headers={'content-type': 'application/json', 'date': 'Wed, 13 Mar 2024 06:40:04 GMT', 'content-length': '69', 'x-envoy-upstream-service-time': '20', 'server': 'istio-envoy'} 
+ body={"meta":{"poll_in_sec":15},"data":{"status":"pending","message":""}}
+ 
+ </msg>
+<msg timestamp="20240313 12:10:04.311" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240313 12:10:02.811" endtime="20240313 12:10:04.311"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${polling_result}</var>
+<arg>${response.json()}[data][status]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240313 12:10:04.312" level="INFO">${polling_result} = pending</msg>
+<status status="PASS" starttime="20240313 12:10:04.311" endtime="20240313 12:10:04.312"/>
+</kw>
+<if>
+<branch type="IF" condition="'${polling_result}'=='success'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:10:04.312" endtime="20240313 12:10:04.313"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:10:04.312" endtime="20240313 12:10:04.313"/>
+</branch>
+<status status="PASS" starttime="20240313 12:10:04.312" endtime="20240313 12:10:04.313"/>
+</if>
+<if>
+<branch type="IF" condition="'${polling_result}'=='failure'">
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="NOT RUN" starttime="20240313 12:10:04.313" endtime="20240313 12:10:04.313"/>
+</kw>
+<status status="NOT RUN" starttime="20240313 12:10:04.313" endtime="20240313 12:10:04.313"/>
+</branch>
+<status status="PASS" starttime="20240313 12:10:04.313" endtime="20240313 12:10:04.313"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>15</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240313 12:10:19.314" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20240313 12:10:04.313" endtime="20240313 12:10:19.315"/>
+</kw>
+<status status="PASS" starttime="20240313 12:10:02.811" endtime="20240313 12:10:19.315"/>
+</iter>
+<status status="PASS" starttime="20240313 12:08:24.951" endtime="20240313 12:10:19.315"/>
 </for>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${polling_result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:14.893" endtime="20240214 18:51:14.893"/>
+<status status="PASS" starttime="20240313 12:10:19.315" endtime="20240313 12:10:19.315"/>
 </kw>
-<status status="PASS" starttime="20240214 18:51:12.765" endtime="20240214 18:51:14.893"/>
+<status status="PASS" starttime="20240313 12:08:23.419" endtime="20240313 12:10:19.315"/>
 </kw>
 <kw name="verify ai packs" library="backend_resource_functions">
 <kw name="Log To Console" library="BuiltIn">
 <arg>verifying ai packs...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240214 18:51:14.894" endtime="20240214 18:51:14.894"/>
+<status status="PASS" starttime="20240313 12:10:19.316" endtime="20240313 12:10:19.316"/>
 </kw>
 <kw name="Fetch Ai Packs Values" library="Payloads">
 <var>${ai_packs_values}</var>
 <arg>56AI010100000015</arg>
-<msg timestamp="20240214 18:51:16.448" level="INFO">Im at mongo db function
+<msg timestamp="20240313 12:10:21.201" level="INFO">Im at mongo db function
 Im hereee
 &lt;class 'dict'&gt;
-{'_id': ObjectId('65a10ecbbef13ee9fe5d6b87'), 'ai_pack': {'pms': {'state': 'inactive', 'state_timestamp': 1707916217763, 'workflow': None}, 'ams': {'state': 'inactive', 'state_timestamp': 1707916217763, 'workflow': None}, 'ukms': {'workflow': None, 'state': 'inactive', 'state_timestamp': 1707916217763}, 'intrusion': {'state': 'enabled', 'state_timestamp': 1707916217763, 'workflow': None}}}</msg>
-<msg timestamp="20240214 18:51:16.448" level="INFO">${ai_packs_values} = {'intrusion_pack': 'enabled', 'pms_pack': 'inactive', 'ams_pack': 'inactive', 'ukms_pack': 'inactive'}</msg>
-<status status="PASS" starttime="20240214 18:51:14.894" endtime="20240214 18:51:16.449"/>
+{'_id': ObjectId('65d2f14cb8b60f5d4a7916d2'), 'ai_pack': {'pms': {'state': 'inactive', 'state_timestamp': 1709809844460, 'workflow': None}, 'ams': {'state': 'inactive', 'state_timestamp': 1709809844460, 'workflow': None}, 'ukms': {'state_timestamp': 1709809844460, 'workflow': None, 'state': 'inactive'}, 'vms': {'state': 'inactive', 'state_timestamp': 1709809844460, 'workflow': None}, 'intrusion': {'workflow': None, 'state': 'enabled', 'state_timestamp': 1709809844460}}}</msg>
+<msg timestamp="20240313 12:10:21.201" level="INFO">${ai_packs_values} = {'intrusion_pack': 'enabled', 'pms_pack': 'inactive', 'ams_pack': 'inactive', 'ukms_pack': 'inactive'}</msg>
+<status status="PASS" starttime="20240313 12:10:19.316" endtime="20240313 12:10:21.201"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${ai_packs_values}[intrusion_pack]</arg>
 <arg>enabled</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240214 18:51:16.449" endtime="20240214 18:51:16.449"/>
+<status status="PASS" starttime="20240313 12:10:21.202" endtime="20240313 12:10:21.202"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${ai_packs_values}[pms_pack]</arg>
 <arg>inactive</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240214 18:51:16.449" endtime="20240214 18:51:16.450"/>
+<status status="PASS" starttime="20240313 12:10:21.202" endtime="20240313 12:10:21.203"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${ai_packs_values}[ams_pack]</arg>
 <arg>inactive</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240214 18:51:16.450" endtime="20240214 18:51:16.451"/>
+<status status="PASS" starttime="20240313 12:10:21.203" endtime="20240313 12:10:21.204"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${ai_packs_values}[ukms_pack]</arg>
 <arg>inactive</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20240214 18:51:16.451" endtime="20240214 18:51:16.451"/>
+<status status="PASS" starttime="20240313 12:10:21.204" endtime="20240313 12:10:21.204"/>
 </kw>
-<status status="PASS" starttime="20240214 18:51:14.893" endtime="20240214 18:51:16.451"/>
+<status status="PASS" starttime="20240313 12:10:19.315" endtime="20240313 12:10:21.205"/>
 </kw>
-<status status="PASS" starttime="20240214 18:51:04.033" endtime="20240214 18:51:16.451"/>
+<status status="PASS" starttime="20240313 12:07:32.485" endtime="20240313 12:10:21.205"/>
 </test>
-<status status="PASS" starttime="20240214 18:51:03.389" endtime="20240214 18:51:16.452"/>
+<status status="PASS" starttime="20240313 12:07:31.391" endtime="20240313 12:10:21.206"/>
 </suite>
 <statistics>
 <total>
